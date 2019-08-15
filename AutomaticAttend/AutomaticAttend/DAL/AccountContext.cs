@@ -19,7 +19,12 @@ namespace AutomaticAttend.DAL
         public DbSet<SysUser> SysUsers { get; set; }
 
         public DbSet<Teacher> Teachers { get; set; }
-   
+        public DbSet<SysRole> SysRoles { get; set; }
+        public DbSet<LoginRole> LoginRoles { get; set; }
+        public DbSet<Login> Logins { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<TeacherStudent> TeacherStudents { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -5,16 +5,16 @@ using System.Web;
 
 namespace AutomaticAttend.Models
 {
-    public class SysUser
+    public class SysRole
     {
         public int ID { get; set; }
         /// <summary>
-        /// 用户账号
+        /// 角色名字
         /// </summary>
-        public string OpenId { get; set; }
+        public string RoleName { get; set; }
         /// <summary>
-        /// 用户发送的消息
+        /// 角色功能
         /// </summary>
-        public string Name { get; set; }
+        public string RoleDec { get; set; }
     }
 }

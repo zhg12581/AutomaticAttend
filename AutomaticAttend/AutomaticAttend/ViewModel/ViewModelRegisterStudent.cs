@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AutomaticAttend.Models
+namespace AutomaticAttend.ViewModel
 {
-    public class Student
+    public class ViewModelRegisterStudent
     {
-        public int ID { get; set; }
-
         //用户注册微信的唯一标识，目前暂时用微信昵称代替
         public string OpenId { get; set; }
 
@@ -21,11 +19,8 @@ namespace AutomaticAttend.Models
         //学生专业班级
         public string ProfessionalClass { get; set; }
 
-        //该学生总共的出勤次数
-        public int TotalSignIn { get; set; }
-
-        //该学生遇到的总考勤次数
-        public int TotalAttendance { get; set; }
+        //预选角色：学生(用户在微信小程序注册时选择的角色）
+        public string PrimaryRole { get; set; }
 
     }
 }

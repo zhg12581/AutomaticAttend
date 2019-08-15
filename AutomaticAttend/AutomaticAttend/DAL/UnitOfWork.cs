@@ -14,6 +14,11 @@ namespace AutomaticAttend.DAL
         private GenericRepository<Student> studentRepository;
         private GenericRepository<SysUser> sysUserRepository;
         private GenericRepository<Teacher> teacherRepository;
+        private GenericRepository<SysRole> sysRoleRepository;
+        private GenericRepository<LoginRole> loginRoleRepository;
+        private GenericRepository<Login> loginRepository;
+        private GenericRepository<Course> courseRepository;
+        private GenericRepository<TeacherStudent> teacherStudentRepository;
 
         public GenericRepository<Student> StudentRepository
         {
@@ -51,8 +56,68 @@ namespace AutomaticAttend.DAL
             }
         }
 
-       
+        public GenericRepository<SysRole> SysRoleRepository
+        {
+            get
+            {
+                if (this.sysRoleRepository == null)
+                {
+                    this.sysRoleRepository = new GenericRepository<SysRole>(context);
+                }
+                return sysRoleRepository;
+            }
+        }
 
+
+        public GenericRepository<LoginRole> LoginRoleRepository
+        {
+            get
+            {
+                if (this.loginRoleRepository == null)
+                {
+                    this.loginRoleRepository = new GenericRepository<LoginRole>(context);
+                }
+                return loginRoleRepository;
+            }
+        }
+
+        public GenericRepository<Login> LoginRepository
+        {
+            get
+            {
+                if (this.loginRepository == null)
+                {
+                    this.loginRepository = new GenericRepository<Login>(context);
+                }
+                return loginRepository;
+            }
+        }
+
+
+        public GenericRepository<Course> CourseRepository
+        {
+            get
+            {
+                if (this.courseRepository == null)
+                {
+                    this.courseRepository = new GenericRepository<Course>(context);
+                }
+                return courseRepository;
+            }
+        }
+
+
+        public GenericRepository<TeacherStudent> TeacherStudentRepository
+        {
+            get
+            {
+                if (this.teacherStudentRepository == null)
+                {
+                    this.teacherStudentRepository = new GenericRepository<TeacherStudent>(context);
+                }
+                return teacherStudentRepository;
+            }
+        }
 
 
         #region Save & Dispose
