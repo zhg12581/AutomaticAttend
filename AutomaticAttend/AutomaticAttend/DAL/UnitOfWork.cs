@@ -19,6 +19,7 @@ namespace AutomaticAttend.DAL
         private GenericRepository<Login> loginRepository;
         private GenericRepository<Course> courseRepository;
         private GenericRepository<TeacherStudent> teacherStudentRepository;
+        private GenericRepository<TeacherCourse> teacherCourseRepository;
 
         public GenericRepository<Student> StudentRepository
         {
@@ -116,6 +117,18 @@ namespace AutomaticAttend.DAL
                     this.teacherStudentRepository = new GenericRepository<TeacherStudent>(context);
                 }
                 return teacherStudentRepository;
+            }
+        }
+
+        public GenericRepository<TeacherCourse> TeacherCourseRepository
+        {
+            get
+            {
+                if (this.teacherCourseRepository == null)
+                {
+                    this.teacherCourseRepository = new GenericRepository<TeacherCourse>(context);
+                }
+                return teacherCourseRepository;
             }
         }
 

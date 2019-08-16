@@ -7,6 +7,8 @@ namespace AutomaticAttend.ViewModel
 {
     public class ViewModelAllCourse
     {
+        //该课程在课程表里的ID
+        public int ID { get; set; }
         //课程唯一编号
         public string CourseId { get; set; }
         //课程名称

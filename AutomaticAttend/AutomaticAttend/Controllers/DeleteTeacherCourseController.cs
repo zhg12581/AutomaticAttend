@@ -9,26 +9,26 @@ using System.Web.Http;
 
 namespace AutomaticAttend.Controllers
 {
-    public class DeleteTeacherStudentController : ApiController
+    public class DeleteTeacherCourseController : ApiController
     {
         private AccountContext db = new AccountContext();
         private UnitOfWork unitOfWork = new UnitOfWork();
         [HttpPost]
-        [ActionName("PostDeleteTeacherStudent")]
-        public ViewModelInformation DeleteTeacherStudent(string[] choosestudent)
+        [ActionName("PostDeleteTeacherCourse")]
+        public ViewModelInformation DeleteTeacherCourse(string[] choosecourse)
         {
             ViewModelInformation viewModelInformation = new ViewModelInformation();
-            string teachername = choosestudent[0];
+            string teachername = choosecourse[0];
             var teacher = unitOfWork.TeacherRepository.Get().Where(s => s.Name.Equals(teachername)).FirstOrDefault();
-            var teacherstudent = unitOfWork.TeacherStudentRepository.Get().Where(s => s.TeacherId.Equals(teacher.ID)).ToList();
-            for (int i = 1; i < choosestudent.Length; i++)
+            var teachercourse = unitOfWork.TeacherCourseRepository.Get().Where(s => s.TeacherId.Equals(teacher.ID)).ToList();
+            for (int i = 1; i < choosecourse.Length; i++)
             {
-                var student = unitOfWork.StudentRepository.Get().Where(s => s.StudentId.Equals(choosestudent[i])).FirstOrDefault();
-                for (int j = 0; j < teacherstudent.Count; j++)
+                var course = unitOfWork.CourseRepository.Get().Where(s => s.CourseId.Equals(choosecourse[i])).FirstOrDefault();
+                for (int j = 0; j < teachercourse.Count; j++)
                 {
-                    if (student.ID.Equals(teacherstudent[j].StudentId))
-                    {                     
-                        unitOfWork.TeacherStudentRepository.Delete(teacherstudent[j]);                      
+                    if (course.ID.Equals(teachercourse[j].CourseId))
+                    {
+                        unitOfWork.TeacherCourseRepository.Delete(teachercourse[j]);
                         unitOfWork.Save();
                         break;
                     }
@@ -39,5 +39,6 @@ namespace AutomaticAttend.Controllers
             return viewModelInformation;
 
         }
+
     }
 }

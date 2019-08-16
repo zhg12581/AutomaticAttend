@@ -5,12 +5,13 @@ using System.Web;
 
 namespace AutomaticAttend.Models
 {
-    public class TeacherStudent
+    public class TeacherCourse
     {
         public int ID { get; set; }
         //Teacher表里的ID
-        public int TeacherId{ get; set; }
-        //Student表里的ID
-        public int StudentId{ get; set; }
+        public int TeacherId { get; set; }
+        //Course表里的ID
+        public int CourseId { get; set; }
+
     }
 }
