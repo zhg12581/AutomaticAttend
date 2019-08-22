@@ -8,5 +8,6 @@ namespace AutomaticAttend.ViewModel
     public class ViewModelInformation
     {
         public string Message { get; set; }
+        public int ID { get; set; }
     }
 }

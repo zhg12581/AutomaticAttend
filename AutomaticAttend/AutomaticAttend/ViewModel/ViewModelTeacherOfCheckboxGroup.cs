@@ -9,6 +9,8 @@ namespace AutomaticAttend.ViewModel
     {
         //老师名字
         public string TeacherName { get; set; }
+        //学生ID
+        public string StudentId { get; set; }
 
     }
 }

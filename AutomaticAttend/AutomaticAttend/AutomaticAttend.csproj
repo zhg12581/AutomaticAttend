@@ -140,7 +140,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BindingTeacherCourseController.cs" />
-    <Compile Include="Controllers\BindingTeacherStudentController.cs" />
+    <Compile Include="Controllers\ChooseCourseController.cs" />
+    <Compile Include="Controllers\DeleteSelectedCourseController.cs" />
+    <Compile Include="Controllers\ReturnElectiveCourseController.cs" />
     <Compile Include="Controllers\ConfirmStudentRoleController.cs" />
     <Compile Include="Controllers\ConfirmTeacherRoleController.cs" />
     <Compile Include="Controllers\CreateCourseController.cs" />
@@ -148,19 +150,17 @@
     <Compile Include="Controllers\DeleteStudentRoleController.cs" />
     <Compile Include="Controllers\DeleteTeacherCourseController.cs" />
     <Compile Include="Controllers\DeleteTeacherRoleController.cs" />
-    <Compile Include="Controllers\DeleteTeacherStudentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterStudentController.cs" />
     <Compile Include="Controllers\RegisterTeacherController.cs" />
     <Compile Include="Controllers\ReturnAllCourseController.cs" />
     <Compile Include="Controllers\ReturnBindingCourseOfTeacherController.cs" />
-    <Compile Include="Controllers\ReturnBindingStudentOfTeacherController.cs" />
     <Compile Include="Controllers\ReturnConfirmTeacherController.cs" />
     <Compile Include="Controllers\ReturnCourseOfTeacherController.cs" />
     <Compile Include="Controllers\ReturnPrimaryStudentController.cs" />
     <Compile Include="Controllers\ReturnPrimaryTeacherController.cs" />
-    <Compile Include="Controllers\ReturnStudentOfTeacherController.cs" />
+    <Compile Include="Controllers\SelectedCourseController.cs" />
     <Compile Include="DAL\AccountContext.cs" />
     <Compile Include="DAL\AccountInitializer.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
@@ -169,6 +169,7 @@
     </Compile>
     <Compile Include="Methods\CreateMD5.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseSelectInformation.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\LoginRole.cs" />
     <Compile Include="Models\Student.cs" />
@@ -176,15 +177,15 @@
     <Compile Include="Models\SysUser.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\TeacherCourse.cs" />
-    <Compile Include="Models\TeacherStudent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="ViewModel\ViewModelAllCourse.cs" />
+    <Compile Include="ViewModel\ViewModelChooseCourse.cs" />
     <Compile Include="ViewModel\ViewModelConfirmOrDeleteRole.cs" />
     <Compile Include="ViewModel\ViewModelConfirmStudent.cs" />
-    <Compile Include="ViewModel\ViewModelCourse.cs" />
     <Compile Include="ViewModel\ViewModelCreateCourse.cs" />
+    <Compile Include="ViewModel\ViewModelIdentity.cs" />
     <Compile Include="ViewModel\ViewModelInformation.cs" />
     <Compile Include="ViewModel\ViewModelLogin.cs" />
     <Compile Include="ViewModel\ViewModelRegisterStudent.cs" />

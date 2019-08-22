@@ -23,8 +23,8 @@ namespace AutomaticAttend.DAL
         public DbSet<LoginRole> LoginRoles { get; set; }
         public DbSet<Login> Logins { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<TeacherStudent> TeacherStudents { get; set; }
         public DbSet<TeacherCourse> TeacherCourses { get; set; }
+        public DbSet<CourseSelectInformation> CourseSelectInformations { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

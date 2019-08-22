@@ -3,9 +3,11 @@ using AutomaticAttend.Models;
 using AutomaticAttend.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Web.Http;
 
 namespace AutomaticAttend.Controllers
@@ -22,8 +24,24 @@ namespace AutomaticAttend.Controllers
             try
             {
                 viewModelInformation = new ViewModelInformation();
+                string js_code = viewModelRegisterTeacher.Code.ToString();
+                string serviceAddress = "https://api.weixin.qq.com/sns/jscode2session?appid=wxece27e98fc59b527&secret=3efec00e6fe037602aeae3a317608942&js_code=" + js_code + "&grant_type=authorization_code";
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(serviceAddress);
+                request.Method = "GET";
+                request.ContentType = "text/html;charset=UTF-8";
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream myResponseStream = response.GetResponseStream();
+                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
+                string retString = myStreamReader.ReadToEnd();
+                myStreamReader.Close();
+                myResponseStream.Close();
+                string key = "\"openid\":\"";
+                int startIndex = retString.IndexOf(key);
+                int endIndex = retString.IndexOf("\"}", startIndex);
+                string openid = retString.Substring(startIndex + key.Length, endIndex - startIndex - key.Length);
+
                 var user = new Teacher();
-                user.OpenId = viewModelRegisterTeacher.OpenId;
+                user.OpenId = openid;
                 user.TeacherId = viewModelRegisterTeacher.TeacherId;
                 user.Name = viewModelRegisterTeacher.Name;
                 user.Subject= viewModelRegisterTeacher.Subject;
@@ -31,7 +49,7 @@ namespace AutomaticAttend.Controllers
                 unitOfWork.Save();
 
                 var users = new Login();
-                users.OpenId = viewModelRegisterTeacher.OpenId;
+                users.OpenId = openid;
                 unitOfWork.LoginRepository.Insert(users);
                 unitOfWork.Save();
 

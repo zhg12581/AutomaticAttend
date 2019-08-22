@@ -22,7 +22,7 @@ namespace AutomaticAttend.Controllers
                         join ur in unitOfWork.TeacherCourseRepository.Get() on u.ID equals ur.TeacherId
                         join r in unitOfWork.CourseRepository.Get() on ur.CourseId equals r.ID
                         where ur.TeacherId.Equals(teacher.ID)
-                        select new ViewModelAllCourse { CourseId = r.CourseId, CourseName = r.CourseName,CoursePlace = r.CoursePlace,WeekDay=r.CoursePlace,StartTime=r.StartTime,OverTime=r.OverTime }).ToList();
+                        select new ViewModelAllCourse { CourseId = r.CourseId, CourseName = r.CourseName,CoursePlace = r.CoursePlace,WeekDay=r.CoursePlace,StartTime=r.StartTime,OverTime=r.OverTime}).ToList();
             return data;
         }
     }

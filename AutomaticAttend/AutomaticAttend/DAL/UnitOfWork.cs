@@ -18,8 +18,8 @@ namespace AutomaticAttend.DAL
         private GenericRepository<LoginRole> loginRoleRepository;
         private GenericRepository<Login> loginRepository;
         private GenericRepository<Course> courseRepository;
-        private GenericRepository<TeacherStudent> teacherStudentRepository;
         private GenericRepository<TeacherCourse> teacherCourseRepository;
+        private GenericRepository<CourseSelectInformation> courseSelectInformationRepository;
 
         public GenericRepository<Student> StudentRepository
         {
@@ -108,17 +108,7 @@ namespace AutomaticAttend.DAL
         }
 
 
-        public GenericRepository<TeacherStudent> TeacherStudentRepository
-        {
-            get
-            {
-                if (this.teacherStudentRepository == null)
-                {
-                    this.teacherStudentRepository = new GenericRepository<TeacherStudent>(context);
-                }
-                return teacherStudentRepository;
-            }
-        }
+       
 
         public GenericRepository<TeacherCourse> TeacherCourseRepository
         {
@@ -132,6 +122,18 @@ namespace AutomaticAttend.DAL
             }
         }
 
+
+        public GenericRepository<CourseSelectInformation> CourseSelectInformationRepository
+        {
+            get
+            {
+                if (this.courseSelectInformationRepository == null)
+                {
+                    this.courseSelectInformationRepository = new GenericRepository<CourseSelectInformation>(context);
+                }
+                return courseSelectInformationRepository;
+            }
+        }
 
         #region Save & Dispose
         public void Save()

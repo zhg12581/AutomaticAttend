@@ -21,7 +21,7 @@ namespace AutomaticAttend.Controllers
             var data = (from u in unitOfWork.CourseRepository.Get()                        
                         select new ViewModelAllCourse { CourseId = u.CourseId, CourseName = u.CourseName,CoursePlace = u.CoursePlace, StartTime = u.StartTime,OverTime=u.OverTime,WeekDay=u.WeekDay,ID=u.ID}).ToList();
             var data2 = (from u in unitOfWork.CourseRepository.Get()
-                        select new ViewModelAllCourse { CourseId = u.CourseId, CourseName = u.CourseName, CoursePlace = u.CoursePlace, StartTime = u.StartTime, OverTime = u.OverTime, WeekDay = u.WeekDay, ID = u.ID }).ToList();
+                        select new ViewModelAllCourse { CourseId = u.CourseId, CourseName = u.CourseName, CoursePlace = u.CoursePlace, StartTime = u.StartTime, OverTime = u.OverTime, WeekDay = u.WeekDay, ID = u.ID}).ToList();
             for (int i = 0; i < data.Count; i++)
             {
                 var teacherscourse = unitOfWork.TeacherCourseRepository.Get().Where(s => s.CourseId.Equals(data[i].ID)).ToList();
